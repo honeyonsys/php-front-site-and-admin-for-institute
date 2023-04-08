@@ -197,7 +197,7 @@ class Users
     }
 
     public function generateTokenForEmail($email) {
-        $timeStamp = time() + 1800000; //adding 30 more minutes
+        $timeStamp = time() + 900; //adding 30 more minutes
         $tokenString = $email.",". $timeStamp;
         $encodedString = base64_encode($tokenString);
         $updateQry = 'UPDATE ' .$this->table. ' SET token = :token, tokenExpire = :tokenExpire WHERE email = :email';
