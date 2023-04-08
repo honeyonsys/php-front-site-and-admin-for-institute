@@ -177,16 +177,22 @@ class Users
         }
     }
 
-    public function validateToken($token) {
-        $selectQry = "SELECT tokenExpire FROM " .$this->table . ' WHERE token = : token';
+    public function validateToken() {
+        $selectQry = "SELECT tokenExpire FROM " .$this->table . ' WHERE token = :token';
         $stmt = $this->conn->prepare($selectQry);
         //clean data 
-        $stmt->bindParam(':token', $token);
-        $stmt->execute()
+        $stmt->bindParam(':token', $this->token);
+        $stmt->execute();
         if($stmt->rowCount() > 0) {
             $rowData = $stmt->fetch();
             $tokenExpire = $rowData['tokenExpire'];
-            echo $tokenExpire;
+            
+            if($tokenExpire > time()) {
+                return true;
+            } else {
+                return false;
+            }
+            
         }
     }
 

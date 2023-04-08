@@ -23,7 +23,7 @@ $(document).ready(function(){
                 if(response['status'] == "1") {
                     localStorage.setItem("userSession", $("#username").val());
                     console.log(res);
-                    //window.location.href = "dashboard.html";
+                    window.location.href = "dashboard.html";
                 } else {
                     alert(response['message']);
                 }
