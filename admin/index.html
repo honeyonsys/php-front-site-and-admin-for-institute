@@ -1,0 +1,12 @@
+<html>
+<head>
+<script>
+let usersession = localStorage.getItem("userSession");
+if(usersession != null) {
+    window.location.href = "dashboard.html";
+} else {
+    window.location.href = "login.html";
+}
+</script>
+</head>
+</html>
