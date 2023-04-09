@@ -1,11 +1,14 @@
 <html>
 <head>
+<!--constants.js should load before common js-->
+<script src="assets/js/constants.js"></script>
 <script>
-let usersession = localStorage.getItem("userSession");
-if(usersession != null) {
-    window.location.href = "dashboard.html";
+let sessionEmailName = localStorage.getItem(sessionEmail);
+let sessionTokenName = localStorage.getItem(sessionToken);
+if(sessionEmailName == null && sessionTokenName == null) {
+    window.location.href="login.html";
 } else {
-    window.location.href = "login.html";
+    window.location.href = "dashboard.html";
 }
 </script>
 </head>
