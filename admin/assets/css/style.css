@@ -64,6 +64,7 @@ header ul li a{
     background-color: #ffffff;
     border:#ffffff solid 1px;
     margin-top:10px;
+    cursor: pointer;
 }
 
 .mainCont{
@@ -128,4 +129,33 @@ header ul li a{
     float: left;
     margin-top:20px;
     
+}
+.pageContent{
+    width:100%;
+    height: auto;
+    float: left;
+    margin-top: 20px;
+    
+}
+.dashboardThumb{
+    width:200px;
+    height: 200px;
+    float: left;
+    margin-top:20px;
+    margin-left:20px;
+    background-color: #421070;
+    box-shadow:#000000 0px 0px 10px;
+}
+.dashboardThumbIcon{
+    width:100%;
+    height:150px;
+    float: left;
+    text-align: center;
+}
+.dashboardThumb h2 {
+    color: #ffffff;
+    font-size:25px;
+    margin:-10px;
+    text-align: center;
+
 }
