@@ -177,6 +177,21 @@ class Users
         }
     }
 
+    public function logoutUser() {
+        $updateQry = 'UPDATE '. $this->table . ' SET token = "", tokenExpire=0 WHERE email = :email AND token = :token';
+        //prepare statement 
+        $stmt = $this->conn->prepare($updateQry);
+        //bind param
+        $stmt->bindParam(':email', $this->email);
+        $stmt->bindParam(':token', $this->token);
+        //execute query
+        if($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function validateToken() {
         $selectQry = "SELECT tokenExpire FROM " .$this->table . ' WHERE token = :token';
         $stmt = $this->conn->prepare($selectQry);
