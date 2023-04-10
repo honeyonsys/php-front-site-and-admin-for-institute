@@ -11,8 +11,8 @@ if($_SERVER['REQUEST_METHOD'] !=  'POST') {
     exit;
 }
 //initializing api
-include_once('../core/config.php');
-require_once('../core/userModel.php');
+include_once('core/config.php');
+require_once('core/userModel.php');
 //instatiate user
 $user = new Users($db);
 //it will check the sent token in header is valid or not
