@@ -22,7 +22,7 @@ $(document).ready(function(){
                     //do something if the session is valid
                 }
             }
-        })
+        });
     }, 120000);
 
     $("body").on("click", "#logoutBtn", function() {
@@ -33,14 +33,15 @@ $(document).ready(function(){
             data: JSON.stringify({"email": localStorage.getItem(sessionEmail)}),
             headers: {"token": localStorage.getItem(sessionToken)},
             complete: function(res) {
-                let response = JSON.parse(res.responseText);
-                if(response['status'] == "1") {
-                    localStorage.removeItem(sessionEmail);
-                    localStorage.removeItem(sessionToken);
-                    window.location.href = "login.html";
-                } else {
-                    alert(response['message']);
-                }
+                
+                localStorage.removeItem(sessionEmail);
+                localStorage.removeItem(sessionToken);
+                window.location.href = "login.html";
+                // if(response['status'] == "1") {
+                    
+                // } else {
+                //     alert(response['message']);
+                // }
             }
         });
     });

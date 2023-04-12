@@ -2,17 +2,78 @@
 <head>
 <title>News Management</title>
 <link rel="stylesheet" href="assets/css/style.css" />
+<link rel="stylesheet" href="assets/css/jquery.dataTables.min.css" />
 <script src="assets/js/jquery-3.6.4.min.js"></script>
+<script src="assets/js/jquery.dataTables.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
 <header></header>
 <div class="mainCont">
     <div class="pageTitle"><h1>News Management</h1></div>
-    <div class="pageContent"></div>
+    <div class="pageContent">
+        <div class="createFormCont">
+            <div class="fullWidthElementCont">
+                <label>News Title</label> : <input type="text"/>
+            </div>
+            <div class="fullWidthElementCont">
+                <label>News Content</label> : <textarea></textarea>
+            </div>
+            <div class="fullWidthElementCont">
+                <button id="">Create News</button>
+            </div>
+        </div>
+        <div class="listTableCont">
+            <table id="newsTable" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sr.</th>
+                        <th>Title</th>
+                        <th>Created On</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Sr.</th>
+                        <th>Title</th>
+                        <th>Created On</th>
+                        <th>Actions</th>
+                        
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+    </div>
 </div>
 <!--constants.js should load before common js-->
 <script src="assets/js/constants.js"></script>
 <script src="assets/js/common.js"></script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: apiPostReadAll,
+        method: "GET",
+        headers: { "token":  localStorage.getItem(sessionToken)},
+        complete: function(res) {
+            let response = JSON.parse(res.responseText);
+            if(response['status'] == "1") {
+                $('#newsTable').dataTable({
+                    data: response['data'],
+                    columns: [
+                        { data: 'sno' },
+                        { data: 'title' },
+                        { data: 'createdAt' },
+                        { data: 'action' }
+                    ]
+                });
+            } else {
+                //do something if the session is valid
+            }
+        }
+    })
+});
+</script>
 </body>
 </html>
