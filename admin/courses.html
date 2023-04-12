@@ -9,7 +9,45 @@
 <header></header>
 <div class="mainCont">
     <div class="pageTitle"><h1>Course Management</h1></div>
-    <div class="pageContent"></div>
+    <div class="pageContent">
+        <div class="createFormCont">
+            <div class="fullWidthElementCont">
+                <label>Course Name</label> : <input type="text"/>
+            </div>
+            <div class="fullWidthElementCont">
+                <label>Course Duration</label> : <textarea></textarea>
+            </div>
+            <div class="fullWidthElementCont">
+                <label>Course Fees</label> : <textarea></textarea>
+            </div>
+            <div class="fullWidthElementCont">
+                <button id="">Create Course</button>
+            </div>
+        </div>
+        <div class="listTableCont">
+            <table id="courseTable" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sr.</th>
+                        <th>Course Name</th>
+                        <th>Course Duration</th>
+                        <th>Course Fees</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Sr.</th>
+                        <th>Course Name</th>
+                        <th>Course Duration</th>
+                        <th>Course Fees</th>
+                        <th>Actions</th>
+                        
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
 </div>
 <!--constants.js should load before common js-->
 <script src="assets/js/constants.js"></script>
