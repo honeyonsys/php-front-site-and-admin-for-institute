@@ -63,5 +63,25 @@ class Attendance
         
     }
 
+    public function readAllAttendance() {
+        $whereClause = " WHERE attendance < '2'";
+        if($this->userId != "") {
+            $whereClause = " AND user_id = :userId";
+        }
+        if($this->date != "") {
+            $whereClause = " AND date = :date";
+        }
+        $selectQry = "SELECT * FROM " . $this->table . $whereClause;
+        $stmt = $this->conn->prepare($selectQry);
+        if(isset($_GET['user_id'])) {
+            $stmt->bindParam(":userId", $this->userId);
+        }
+        if(isset($_GET['date'])) {
+            $stmt->bindParam(":date", $this->date);
+        }
+        //execute query
+        $stmt->execute();
+        return $stmt;
+    }
 
 }
