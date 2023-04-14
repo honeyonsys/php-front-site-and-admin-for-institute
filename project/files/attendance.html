@@ -10,6 +10,7 @@
 integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
 crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" type="text/css" href="../style.css">
+<script src="../../admin/assets/js/constants.js"></script>
 <style>
     .course_box{
     width: 400px;
@@ -3690,17 +3691,20 @@ font-family: 'Edu NSW ACT Foundation', cursive;
     <script>
 
 $('#atd').click(function(){
-        $.ajax({
-    url: "apiAttendanceCreate",
+    let attenData = {
+        "userId":"3",
+       "date":"14-04-2023",
+       "attendance":"0"
+    }; 
+    $.ajax({
+    url: "../../admin/"+apiAttendanceCreate, 
     type: "POST",
-    data: {
-       
-       "userId":"2",
-       "date":"13-04-2023",
-       "attendance":"1"
+    data: JSON.stringify(attenData),
+    headers: {
+        "token": localStorage.getItem(sessionToken)
     },
     success: function(response){
-        console.log(response);
+        console.log(response.responseText);
         alert("hello");
     }
 });
