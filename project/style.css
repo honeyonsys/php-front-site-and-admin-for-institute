@@ -1,0 +1,510 @@
+body{
+    width: 100%;
+    height: auto;
+    float: left;
+}
+
+/* table style */
+table, th, td {
+border:1px solid black;
+
+}
+/* popup style starts */
+
+/* popup style ends */
+
+
+/* leave form style starts */
+.form-bg>p{
+    margin-left: 10px;
+    color: #FF7E84;
+}
+.form-bg{
+    width: 40%;
+    height: 600px;
+    background-color: #FEF3EF;
+   margin-left: 540px;
+   /* opacity: 60%; */
+   position: absolute;
+   box-shadow: 0 0 30px grey;
+   border-radius: 10px;
+ margin-top: 80px;
+   float: left;
+}
+.person{
+  width: 30%;
+  height: 500px;
+  background-image: url("img/c1.png");
+  background-repeat: no-repeat;
+  position: absolute;
+margin-left: 400px;
+margin-top: 120px;
+position: relative;
+animation-name:  animatedBackground;
+animation-duration: 4s;
+animation-iteration-count: infinite;
+  float: left;
+}
+
+@keyframes animatedBackground {
+    0%   { left:0px; top:0px;}
+    100%   {left:0px; top:100px;}
+  }
+.form-bg>h2{
+font-size: 40px;
+font-weight: 700;
+text-align: center;
+font-family: 'Bona Nova', serif;
+color: #FF7E84;
+}
+label{
+margin-left: 40px;
+font-family: 'Bona Nova', serif;
+font-size: 18px;
+font-weight: 500;
+color: #FF7E84;
+}
+input{
+border-radius: 5px;
+width: 200px;
+border:2px solid #FF7E84 ;
+margin-left: 40px;
+margin-top: 20px;
+}
+input:focus {
+ background-color: #FFECE8;
+  }
+  input:hover{
+    border: 3px solid #FF7E84 ;
+  }
+/* submit button in leave form */
+.btn{
+margin-left: 240px;
+margin-top: 50px;
+width: 120px;
+background-color:#FF7E84;
+font-family: 'Bona Nova', serif;
+float: left;
+border-radius:10px;
+border: 1px solid #FF7E84 ;
+font-size: 25px;
+font-weight: 400;
+color: white;
+
+}
+.btn:hover{
+    background-color:#FEF3EF;
+    color:#FF7E84 ;  
+    border: 4px solid #FF7E84;
+}
+/* leave form style ends */
+
+/* syllabus page style starts */
+.syllabus-heading>h2{
+    font-size: 40px;
+font-weight: 700;
+font-family: 'Bona Nova', serif;
+color: #FF7E84;
+/* margin-left: -650px; */
+}
+.download-btn{
+    border-radius: 10px;
+    border: 2px solid white;
+    background-color: #FF7E84;
+    color: white;
+    font-size: 20px;
+    margin-left: 50px;
+}
+.download-btn:hover{
+    background-color:#FEF3EF;
+    color:#FF7E84 ;  
+    border: 4px solid #FF7E84;
+}
+.syllabus-heading>a{
+    text-decoration: none;
+    color:palevioletred ;
+    font-size: 20px;
+    }
+    .syllabus-heading>a:hover{
+        text-decoration: none;
+        color:#FF7E84;
+        font-size: 20px;
+        }
+/*  syllabus page style ends */
+/* attendance page */
+           
+.box{
+    width: 365px;
+    height: 300px;
+    float: left;
+    background-color: #FFECE8;
+    margin-left: 80px;
+    margin-top: 50px;
+}
+.course-img>img{
+    margin-left: -15px;
+}
+.box:hover{
+    box-shadow: 0 0 25px grey;
+    /* transition: all .2s ease-in-out; 
+    transform: scale(1.1);  */
+    transform: skew(10deg);
+}
+/* attendance page ends */
+/* mst marks table button */
+ /* .popup_content>table>td>button{
+    background-color:#FF7E84 ;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid #FF7E84;
+}
+.popup_content>table>td>button:hover{
+    background-color:#FFECE8 ;
+    color:#FF7E84 ;
+    border: 3px solid #FF7E84;
+    border-radius: 5px;
+
+} */
+
+
+/* faculty page */
+
+       
+.outerbox{
+    width: 350px;
+    height: 300px;
+    background-color:white;
+    border-top: solid #FF7E84 10px;
+    border-left: solid #FF7E84 10px;
+    border-right: solid #FF7E84 10px;
+    border-bottom: solid #FF7E84 10px;
+    margin-left: 120px;
+    margin-top: 120px;
+    box-shadow: 0 0 40px grey;
+    transition: all .2s ease-in-out; 
+    border-radius: 5px;
+}
+.outerbox:hover{
+        /* box-shadow: 0 0 40px grey; */
+        transform: scale(1.1); 
+        width: 380px;
+  height: 350px;
+  transform: rotate(360deg);
+}
+.profile-info{
+    font-size: 20px;
+    margin-top: 30px;
+    text-align: center;
+}
+.imagebox{
+    width: 200px;
+    height: 200px;
+border-radius: 60px;
+border: solid 5px #FFD0C9 ;
+
+     background-image: url("../img/img9.png"); 
+    margin-top: -90px;
+    margin-left: 55px;
+    background-size: cover;
+    position:relative;
+
+}
+.faculty-heading>h1{
+    font-family: 'Bona Nova', serif; 
+            font-size: 50px;
+            font-weight: 900;
+            text-align: center;
+            margin-top: 20px;
+            color:#FF7E84;
+}
+/* courses page */
+/* 
+.image{
+    width:100%;
+    height: 600px;
+    background-image: url("img/img11.jpg");
+    background-size: cover;
+} 
+.image>p{
+    font-size: 45px;
+    font-weight: 900;
+    color: brown;
+    font-family: 'Bona Nova', serif;
+    text-align: center;
+    margin-top: 18px;
+    margin-left: -22px;
+}
+
+.course_heading>h1{
+    font-family: 'Bona Nova', serif; 
+    font-size: 50px;
+    font-weight: 900;
+    text-align: center;
+    margin-top: 20px;
+    color: #ff7e84;
+}
+.box1>p{
+    text-align: center;
+    margin-top: 80px;
+
+}
+.popup_image{
+    width: 40%;
+    height: 60%;
+    background-image: url("https://depaulcollege.in/wp-content/uploads/2021/10/dept-comptr-scinc.jpg");
+    margin-left: 600px;
+    background-repeat: no-repeat;
+    margin-top: -450px;
+    border-radius: 100px; 
+   border: 5px groove #DFF5F2 ;
+    float: left;
+}
+
+.popup_box>h2{
+    color:#ff7e84;
+    font-family: 'Bona Nova', serif; 
+            font-size: 50px;
+            font-weight: 900;
+}
+.popup_content>p{
+
+font-family: 'Edu NSW ACT Foundation', cursive;
+            font-size: 18px;}
+
+                    
+        .overlay_popup {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 500ms;
+            visibility: hidden;
+            opacity: 0;
+          }
+          .overlay_popup:target {
+            visibility: visible;
+            opacity: 1;
+          }
+          .popup_box {
+            margin: 70px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            background-color: #FFECE8;
+            width: 70%;
+            position: relative;
+            transition: all 2s ease-in-out;
+          }
+          .popup_box .popup_close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            transition: all 200ms;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+          }
+          .popup_box .popup_content {
+            max-height: 80%;
+            overflow: auto;
+           max-width: 55%;
+          
+          
+          } */
+/* login page for students */
+
+          .login-students{
+   
+            border: none;
+            background-image: linear-gradient(to right, #c3e8e3 , #e9c4c6);
+            color: black;
+            width: 30%;
+            height: 40px;
+            border-radius: 5px;
+            margin-top:-50px;
+            margin-left:1150px;
+           float: left;
+        }
+        .container .mainlogin .loginheading>p{
+   
+            float: left;
+            font-size:30px ;
+            margin-top:250px;
+            margin-left:650px;
+            color: white;
+        
+          }
+           .uname input{
+            border: 2px solid white;
+            float: left;
+            border-radius: 15px;
+            margin-top: 330px;
+            height: 35px;
+            width: 220px;
+            margin-left: -150px;
+            opacity: 0.5;
+            background-color: black;
+            
+        
+           }
+         
+           .pass input{
+            border: 2px solid white;
+            float: left;
+            border-radius: 15px;
+            margin-top: 380px;
+            height: 35px;
+            width: 220px;
+            margin-left: -221px;
+            opacity: 0.5;
+            background-color: black;
+            
+        
+           }
+/*         
+           button{
+            background-color: #ed0f38;
+            border: 2px solid #ed0f38;
+            border-radius: 25px;
+            color: white;
+            font-size: 15px;
+            float: left;
+            margin-top: 450px;
+            margin-left: -190px;
+            width: 150px;
+            height: 40px;
+           }
+         */
+         
+        
+          ::placeholder{
+            color: white;
+            font-size: 15px;
+          }
+        
+         .uname i{
+          color: #f2f2f2;
+          margin-top: 338px;
+          margin-left: -20px;
+          float: left;
+          opacity: 0.5;
+        }
+        
+        .pass i{
+          color: #f2f2f2;
+          margin-top: 390px;
+          margin-left: -20px;
+          float: left;
+          opacity: 0.5;
+        }
+        
+          .container{
+            float: left;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.5;
+          }
+          .mainlogin{
+            float: left;
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+            
+            margin-left: auto;
+            margin-right: auto;
+           
+          }
+          .forgot-pass{
+            color: #f2f2f2;
+            margin-top: 530px;
+            margin-left: -200px;
+            float: left;
+          }
+          /* .overlay_popup {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 500ms;
+            visibility: hidden;
+            opacity: 0;
+            }
+            .overlay_popup:target {
+            visibility: visible;
+            opacity: 1;
+            }
+            .popup_box {
+            margin: 70px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            background-image:linear-gradient(to left top,#FFD0C9,#DFF5F2);  
+            background-color:#FFD0C9;
+            width: 30%;
+            height: 50%;
+            position: relative;
+            transition: all 2s ease-in-out;
+            }
+            .popup_box .popup_close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            transition: all 200ms;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+            }
+            .popup_box .popup_content {
+            max-height: 100%;
+            /* overflow: auto; */
+            /* max-width: 100%;
+            
+            
+            } */ 
+            .forgot-pass a{
+              text-decoration: none;
+              color:white;
+              
+              }
+              .popup_content input{
+                border: 2px solid white;
+            float: left;
+            border-radius: 15px;
+            margin-top: -25px;
+            margin-left: 200px;
+            height: 35px;
+            width: 220px; 
+              
+              } 
+              /* .popup_content button{
+                margin-top: 10px;
+                float: left;
+                width: 250px;
+                margin-left: 100px;
+              } */
+              .popup_content>input> placeholder{
+                color: black;
+              }
+             .popup_box>h2{
+              text-align: center;
+        
+             }
+             .popup_content>p{
+              text-align: center;
+        
+             }
+             .popup_content>label{
+            margin-left:20px;
+            margin-top: 30px;
+            float: left;
+           
+        
+             }
+        

@@ -1,0 +1,161 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F0F1F3;
+}
+header{
+    width:100%;
+    height: 40px;
+    float: left;
+    background-color: blueviolet;
+    box-shadow: #000000 0px 0px 10px;
+}
+.menuLinkCont{
+    width:auto;
+    height:40px;
+    float: left;
+    margin-left:20px;
+}
+header ul {
+    width:auto;
+    margin: 0;
+    list-style: none;
+    
+}
+header ul li{
+    float:left;
+    margin-left: 10px;
+    background: #421070;
+    padding:0 10px;
+    border-radius:15px;
+    height:30px;
+    line-height:30px;
+    margin-top:5px;
+}
+header ul li a{
+    font-size:14px;
+    color:#ffffff;
+    text-decoration: none;
+}
+.navTitle{
+    width:auto;
+    height:40px;
+    margin-left:10px;
+    line-height: 40px;
+    float: left;
+    color:#ffffff;
+    font-weight: bold;
+    font-size: 20px;
+}
+.navTitle a{
+    color:#ffffff;
+    text-decoration: none;
+}
+.logoutLink{
+    width:auto;
+    height:40px;
+    float:right;
+    text-align: right;
+    font-size:14px;
+    margin-right: 10px;
+}
+.logoutLink button {
+    background-color: #ffffff;
+    border:#ffffff solid 1px;
+    margin-top:10px;
+    cursor: pointer;
+}
+
+.mainCont{
+    width:calc(100% - 20px);
+    margin-left:10px;
+
+}
+.pageTitle{
+    width:100%;
+    height:50px;
+    float: left;
+    margin-top:20px;
+}
+.pageTitle h1 {
+    margin:0;
+    font-size: 25px;
+}
+
+.loginCont{
+    width:300px;
+    height:300px;
+    padding:10px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:blueviolet;
+    top:20%;
+    text-align: center;
+}
+.loginCont input[type=text], .loginCont input[type=password] {
+    width:100%;
+    height:100%;
+    border: #ffffff solid 1px;
+
+}
+.loginCont input[type=text]:focus {
+     box-shadow: #ffffff 0px 0px 10px;
+     border:none;
+}
+.loginCont button {
+    width:60%;
+    height:50px;
+    background-color: #421070;
+    border: #D0A9F3 solid 1px;
+    color: #ffffff;
+    cursor: pointer;
+}
+.loginCont:hover{
+    box-shadow: #ffffff 0px 0px 10px;
+}
+.loginLogo{
+    width:100%;
+    height:50px;
+    float: left;
+    font-size:16px;
+    line-height: 50px;
+    color:#ffffff;
+}
+.loginFieldCont{
+    width:100%;
+    height:50px;
+    float: left;
+    margin-top:20px;
+    
+}
+.pageContent{
+    width:100%;
+    height: auto;
+    float: left;
+    margin-top: 20px;
+    
+}
+.dashboardThumb{
+    width:200px;
+    height: 200px;
+    float: left;
+    margin-top:20px;
+    margin-left:20px;
+    background-color: #421070;
+    box-shadow:#000000 0px 0px 10px;
+}
+.dashboardThumbIcon{
+    width:100%;
+    height:150px;
+    float: left;
+    text-align: center;
+}
+.dashboardThumb h2 {
+    color: #ffffff;
+    font-size:25px;
+    margin:-10px;
+    text-align: center;
+
+}

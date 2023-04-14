@@ -1,0 +1,186 @@
+<html>
+    <head>
+        <title>
+            gradient 
+        </title>
+   
+<!--heading-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bona+Nova&display=swap" rel="stylesheet">
+<!--text-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&display=swap" rel="stylesheet">
+    <style>
+        body{
+            width: 1200px;
+            height: 900px;
+        	background-image: linear-gradient(to left top,#FFD0C9,#DFF5F2); 
+        }
+        /* for text like paragraphs */
+        .g1>p{
+            font-family: 'Edu NSW ACT Foundation', cursive;
+            font-size: 32px;
+        }
+        /* for heading */
+        .g1>h2{
+            font-family: 'Bona Nova', serif; 
+            font-size: 40px;
+        }
+        body {
+  font-family: Arial, sans-serif;
+  /* background: url(http://www.shukatsu-note.com/wp-content/uploads/2014/12/computer-564136_1280.jpg) no-repeat;
+  background-size: cover;
+  height: 100vh; */
+}
+
+h1 {
+  text-align: center;
+  font-family: Tahoma, Arial, sans-serif;
+  color: #06D85F;
+  margin: 80px 0;
+}
+
+.box {
+  width: 40%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 35px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+.button {
+  font-size: 1em;
+  padding: 10px;
+  color: #fff;
+  border: 2px solid #06D85F;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.button:hover {
+  background: #06D85F;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+/* @media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+} */
+/* faculty page */
+.one{
+    width: 300px;
+    height: 250px;
+    background-color: grey;
+    border-top: solid black 5px;
+}
+.three{
+    font-size: 25px;
+    margin-top: 50px;
+    text-align: center;
+}
+.two{
+    width: 250px;
+    height: 120px;
+    /* background-color: pink; */
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjW0Nfeixkspj6oENVJWhSi8or_xpan_MjBKViU41S&s");
+    margin-top: -70px;
+    margin-left: 35px;
+    background-size: cover;
+    position:relative;
+
+}
+/* faculty page end */
+    </style></head>
+    <body>
+        <div class="g1"><h2>hello</h2>
+            <p>good morning!!! how are you </p>
+        </div>
+        <!-- <h1>Popup/Modal Windows without JavaScript</h1> -->
+        <div class="box">
+            <a class="button" href="#popup1">Let me Pop up</a>
+        </div>
+        
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2>Here i am</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    Thank to pop me out of that button, but now i'm done so you can close this window.
+                </div>
+            </div>
+        </div>
+       <!-- faculty page -->
+        <div class="one">
+            <div class="two"></div>
+            <div class="three"><p> hello</p>
+            <p>good morning</p>
+        <p>good night</p></div>
+        </div>
+        <!-- page end -->
+    </body>
+    <script>
+        // When the user clicks on <div>, open the popup
+        function myFunction() {
+          var popup = document.getElementById("myPopup");
+          popup.classList.toggle("show");
+        }
+        </script>
+</html>
