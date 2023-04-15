@@ -44,13 +44,14 @@ class Post
         $stmt->bindParam(1, $this->id);
         //execute query
         $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt;
+        // $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $this->title = $row['title'];
-        $this->body = $row['body'];
-        $this->author = $row['author'];
-        $this->category_id = $row['category_id'];
-        $this->category_name = $row['category_name'];
+        // $this->title = $row['title'];
+        // $this->body = $row['body'];
+        // $this->author = $row['author'];
+        // $this->category_id = $row['category_id'];
+        // $this->category_name = $row['category_name'];
     }
 
     public function create()

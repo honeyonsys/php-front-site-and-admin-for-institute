@@ -30,7 +30,7 @@ $post->category_id = $data->category_id;
 
 //create post
 if ($post->create()) {
-    echo json_encode(array('message' => 'post created successfully!'));
+    echo json_encode(array('status'=> '1', 'message' => 'post created successfully!'));
 } else {
-    echo json_encode(array('message' => 'post not created!'));
+    echo json_encode(array('status'=> '0', 'message' => 'post not created!'));
 }
