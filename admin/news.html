@@ -13,14 +13,15 @@
     <div class="pageTitle"><h1>News Management</h1></div>
     <div class="pageContent">
         <div class="createFormCont">
+            <input type="hidden" value="" id="editPostId"/>
             <div class="fullWidthElementCont">
-                <label>News Title</label> : <input type="text"/>
+                <label>News Title</label> : <input type="text" id="newsTitle"/>
             </div>
             <div class="fullWidthElementCont">
-                <label>News Content</label> : <textarea></textarea>
+                <label>News Content</label> : <textarea id="newsContent"></textarea>
             </div>
             <div class="fullWidthElementCont">
-                <button id="">Create News</button>
+                <button id="createNewsBtn">Create News</button> <button id="updateNewsBtn" style="display:none;">Update News</button>
             </div>
         </div>
         <div class="listTableCont">
@@ -52,27 +53,67 @@
 <script src="assets/js/common.js"></script>
 <script>
 $(document).ready(function() {
-    $.ajax({
-        url: apiPostReadAll,
-        method: "GET",
+    
+    fetchNewsList();
+    function editNews(newsId) {
+        alert(newsId);
+    }
+    
+    function fetchNewsList() {
+        $.ajax({
+            url: apiPostReadAll,
+            method: "GET",
+            headers: { "token":  localStorage.getItem(sessionToken)},
+            complete: function(res) {
+                let response = JSON.parse(res.responseText);
+                if(response['status'] == "1") {
+                    $('#newsTable').dataTable({
+                        data: response['data'],
+                        columns: [
+                            { data: 'sno' },
+                            { data: 'title' },
+                            { data: 'createdAt' },
+                            { data: 'action' }
+                        ]
+                    });
+                } else {
+                    //do something if the session is valid
+                }
+            }
+        });
+    }
+
+    $("#createNewsBtn").click(function() {
+        $(this).html("Saving post...");
+        $(this).prop("disabled", "disabled");
+        let newsTitle = $("#newsTitle").val();
+        let newsContent = $("#newsContent").val();
+        postData = {
+            title: newsTitle,
+            body: newsContent,
+            author: 1,
+            category_id: 0
+        };
+        $.ajax({
+        url: apiPostCreate,
+        method: "POST",
         headers: { "token":  localStorage.getItem(sessionToken)},
+        data: JSON.stringify(postData),
         complete: function(res) {
             let response = JSON.parse(res.responseText);
             if(response['status'] == "1") {
-                $('#newsTable').dataTable({
-                    data: response['data'],
-                    columns: [
-                        { data: 'sno' },
-                        { data: 'title' },
-                        { data: 'createdAt' },
-                        { data: 'action' }
-                    ]
-                });
+                location.reload();
             } else {
+                alert("There might be some issue saving a news");
+                location.reload();
                 //do something if the session is valid
             }
         }
-    })
+        });
+    });
+
+    
+    
 });
 </script>
 </body>

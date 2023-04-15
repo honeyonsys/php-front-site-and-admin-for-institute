@@ -39,7 +39,7 @@ if ($num > 0) {
             'categoryId' => $category_id,
             'categoryName' => '',
             'createdAt' => $created_at,
-            'action' => '<button>Edit</button> <button>Delete</button>'
+            'action' => '<button onclick="editNews('.$id.')">Edit</button> <button>Delete</button>'
         );
         array_push($postArr, $postItem);
     }
