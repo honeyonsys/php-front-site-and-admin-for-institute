@@ -12,6 +12,7 @@ const apiEventCreate = apiHost + '/event_create.php';
 const apiEventReadAll = apiHost + '/event_readall.php';
 const apiEventReadSingle = apiHost + '/event_readsingle.php';
 const apiEventUpdate = apiHost + '/event_update.php';
+const apiEventDelete = apiHost + '/event_delete.php';
 const apiAttendanceCreate = apiHost + '/attendance_create.php';
 const sessionEmail = "ims-session-email";
 const sessionToken = "ims-session-token";

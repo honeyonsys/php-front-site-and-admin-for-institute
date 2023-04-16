@@ -168,6 +168,33 @@ $(document).ready(function(){
         });
     });
 
+    $("#eventTable").on("click", ".eventDeleteBtn", function() {
+        if(confirm("Are you sure you want to delete this event")) {
+            let eventId = $(this).parents('td').children("input[type=hidden]").val();
+            postData = {
+                id: eventId
+            };
+            $.ajax({
+            url: apiEventDelete,
+            method: "POST",
+            headers: { "token":  localStorage.getItem(sessionToken)},
+            data: JSON.stringify(postData),
+            complete: function(res) {
+                let response = JSON.parse(res.responseText);
+                console.log(res.responseText);
+                if(response['status'] == "1") {
+                    location.reload();
+                } else {
+                    alert("There might be some issue saving a news");
+                    
+                    //do something if the session is valid
+                }
+            }
+            });
+        }
+
+    })
+
 });
 </script>
 </body>
