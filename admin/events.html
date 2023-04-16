@@ -2,8 +2,10 @@
 <head>
 <title>Event Management</title>
 <link rel="stylesheet" href="assets/css/style.css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <script src="assets/js/jquery-3.6.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
 <body>
 <header></header>
@@ -12,16 +14,16 @@
     <div class="pageContent">
         <div class="createFormCont">
             <div class="fullWidthElementCont">
-                <label>Event Name</label> : <input type="text"/>
+                <label>Event Name</label> : <input type="text" id="eventTitle"/>
             </div>
             <div class="fullWidthElementCont">
-                <label>Event Description</label> : <textarea></textarea>
+                <label>Event Description</label> : <textarea id="eventDescription"></textarea>
             </div>
             <div class="fullWidthElementCont">
-                <label>Event Date</label> : <textarea></textarea>
+                <label>Event Date</label> : <input type="text" id="eventDate"/>
             </div>
             <div class="fullWidthElementCont">
-                <button id="">Create Event</button>
+                <button id="createEventBtn">Create Event</button> <button id="updateEventBtn" style="display:none">Update Event</button>
             </div>
         </div>
         <div class="listTableCont">
@@ -51,5 +53,38 @@
 <!--constants.js should load before common js-->
 <script src="assets/js/constants.js"></script>
 <script src="assets/js/common.js"></script>
+<script>
+$(document).ready(function(){
+    $('#eventDate').datepicker();
+
+    $("#createEventBtn").click(function() {
+        $(this).html("Saving event...");
+        let eventTitle = $("#eventTitle").val();
+        let eventDescription = $("#eventDescription").val();
+        let eventDate = $("#eventDate").val();
+        postData = {
+            title: eventTitle,
+            description: eventDescription,
+            date: eventDate
+        };
+        $.ajax({
+        url: apiEventCreate,
+        method: "POST",
+        headers: { "token":  localStorage.getItem(sessionToken)},
+        data: JSON.stringify(postData),
+        complete: function(res) {
+            let response = JSON.parse(res.responseText);
+            if(response['status'] == "1") {
+                location.reload();
+            } else {
+                alert("There might be some issue");
+                location.reload();
+                //do something if the session is valid
+            }
+        }
+        });
+    });
+});
+</script>
 </body>
 </html>
