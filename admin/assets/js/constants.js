@@ -8,4 +8,3 @@ const apiPostReadAll = apiHost + '/post_readall.php';
 const apiAttendanceCreate = apiHost + '/attendance_create.php';
 const sessionEmail = "ims-session-email";
 const sessionToken = "ims-session-token";
-const apiAttendanceCreate=apiHost+'/attendance_create.php';

@@ -15,11 +15,16 @@
 <script>
 $(document).ready(function(){
     $("#loginBtn").click(function() {
+        let btn = $(this);
+        btn.html('<img src="./assets/images/Rolling-1s-200px.gif" width="30" height="30" />' );
+        btn.attr("disabled", "disabled");
         $.ajax({
             url: apiLoginUser,
             method: "post",
             data: JSON.stringify({"email": $("#username").val(), "password": $("#userPassword").val()}),
             complete: function(res) {
+                btn.attr("disabled", false);
+                btn.html("LOGIN");
                 let response = JSON.parse(res.responseText);
                 if(response['status'] == "1") {
                     localStorage.setItem(sessionEmail, $("#username").val());
