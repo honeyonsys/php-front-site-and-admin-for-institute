@@ -15,6 +15,7 @@
     <div class="pageTitle"><h1>Event Management</h1></div>
     <div class="pageContent">
         <div class="createFormCont">
+            <input type="hidden" value="" id="editEventId"/>
             <div class="fullWidthElementCont">
                 <label>Event Name</label> : <input type="text" id="eventTitle"/>
             </div>
@@ -111,6 +112,62 @@ $(document).ready(function(){
         }
         });
     });
+
+    $("#eventTable").on("click", ".eventEditBtn", function() {
+        let eventId = $(this).parents('td').children("input[type=hidden]").val();
+        $.ajax({
+        url: apiEventReadSingle+"?id="+eventId,
+        method: "GET",
+        headers: { "token":  localStorage.getItem(sessionToken)},
+        complete: function(res) {
+            let response = JSON.parse(res.responseText);
+            if(response['status'] == "1") {
+                $("#createEventBtn").hide();
+                $("#updateEventBtn").show();
+                $("#eventTitle").val(response['data']['title']);
+                $("#eventDescription").val(response['data']['description']);
+                $("#eventDate").val(response['data']['date']);
+                $("#editEventId").val(response['data']['id']);
+            } else {
+                alert("There might be some issue saving a news");
+                
+                //do something if the session is valid
+            }
+        }
+        });
+
+    });
+
+    $("#updateEventBtn").click(function() {
+        $(this).html("Saving...");
+        let eventTitle = $("#eventTitle").val();
+        let eventDescription = $("#eventDescription").val();
+        let eventDate = $("#eventDate").val();
+        let eventId = $("#editEventId").val();
+        postData = {
+            title: eventTitle,
+            description: eventDescription,
+            date: eventDate,
+            id: eventId
+        };
+        $.ajax({
+        url: apiEventUpdate,
+        method: "PUT",
+        headers: { "token":  localStorage.getItem(sessionToken)},
+        data: JSON.stringify(postData),
+        complete: function(res) {
+            let response = JSON.parse(res.responseText);
+            if(response['status'] == "1") {
+                location.reload();
+            } else {
+                alert("There might be some issue saving a news");
+                location.reload();
+                //do something if the session is valid
+            }
+        }
+        });
+    });
+
 });
 </script>
 </body>
