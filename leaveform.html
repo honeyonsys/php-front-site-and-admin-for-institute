@@ -91,6 +91,31 @@ crossorigin="anonymous" referrerpolicy="no-referrer"/>
             autoclose: true,
             todayHighlight: true
         });
+
+
+        // Submit the form when the submit button is clicked
+    $("form").submit(function(e) {
+        e.preventDefault(); // Prevent the form from submitting normally
+
+        // Get the form data
+        var formData = $(this).serialize();
+
+        // Send the form data to the PHP API using AJAX
+        $.ajax({
+            type: "POST",
+            url: "admin/api/student_request_form.php",
+            data: formData,
+            success: function() {
+                // If the form was submitted successfully, show a success message
+                $("#success-message").show();
+                $("form")[0].reset(); // Reset the form
+            },
+            error: function() {
+                // If there was an error submitting the form, show an error message
+                $("#error-message").show();
+            }
+        });
+    });
     });
 </script>
 </body>
