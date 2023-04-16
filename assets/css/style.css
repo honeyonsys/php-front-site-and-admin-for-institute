@@ -8,6 +8,17 @@ body {
     height: auto;
     float: left;
 }
+.pageContent{
+  width: calc(100% - 40px);
+  height: auto;
+  float: left;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+.pageContent h1 {
+  margin-bottom: 20px;
+  color:#FF7E84;
+}
 header{
     width:100%;
     height:auto;
@@ -339,4 +350,39 @@ footer{
 .galleryPhoto img {
   width: 100%;
   height: auto;
+}
+
+.leaveFormContainer {
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.leaveFormContainer form {
+	display: flex;
+	flex-direction: column;
+}
+
+.leaveFormContainer label {
+	margin-top: 10px;
+}
+
+.leaveFormContainer input[type="text"], textarea {
+	padding: 5px;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+}
+
+.leaveFormContainer input[type="submit"] {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 3px;
+	border: none;
+	cursor: pointer;
+}
+
+.leaveFormContainer input[type="submit"]:hover {
+	background-color: #3e8e41;
 }
