@@ -6,14 +6,92 @@
 integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
 crossorigin="anonymous" referrerpolicy="no-referrer"/>
 <script src="assets/js/jquery-3.6.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
+<style>
+    .leaveFormContainer {
+	max-width: 500px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.leaveFormContainer form {
+	display: flex;
+	flex-direction: column;
+}
+
+.leaveFormContainer label {
+	margin-top: 10px;
+}
+
+.leaveFormContainer input[type="text"], textarea {
+	padding: 5px;
+	margin-bottom: 10px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+}
+
+.leaveFormContainer input[type="submit"] {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 3px;
+	border: none;
+	cursor: pointer;
+}
+
+.leaveFormContainer input[type="submit"]:hover {
+	background-color: #3e8e41;
+}
+</style>
 </head>
 <body>
 <div class="mainCont">
 <header></header>
 
+<div class="leaveFormContainer">
+    <h1>Leave Application Form</h1>
+    <form method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="class">Class:</label>
+        <input type="text" id="class" name="class" required>
+
+        <label for="rollno">Roll No:</label>
+        <input type="text" id="rollno" name="rollno" required>
+
+        <label for="leavefrom">Leave From:</label>
+        <input type="text" id="leavefrom" name="leavefrom" required>
+
+        <label for="leaveto">Leave To:</label>
+        <input type="text" id="leaveto" name="leaveto" required>
+
+        <label for="reason">Reason:</label>
+        <textarea id="reason" name="reason" required></textarea>
+
+        <label for="days">No of Days:</label>
+        <input type="text" id="days" name="days" required>
+
+        <label for="teachername">Tutorial Teacher Name:</label>
+        <input type="text" id="teachername" name="teachername" required>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
 
 <footer></footer>
 </div><!--mainCont ends-->
 <script src="assets/js/common.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#leavefrom, #leaveto').datepicker({
+            format: "yyyy-mm-dd",
+            autoclose: true,
+            todayHighlight: true
+        });
+    });
+</script>
 </body>
 </html>
