@@ -162,6 +162,33 @@ $(document).ready(function() {
         }
         });
 
+    });
+
+    $("#newsTable").on("click", ".newsDeleteBtn", function() {
+        if(confirm("Are you sure you want to delete this news")) {
+            let postId = $(this).parents('td').children("input[type=hidden]").val();
+            postData = {
+                id: postId
+            };
+            $.ajax({
+            url: apiPostDelete,
+            method: "POST",
+            headers: { "token":  localStorage.getItem(sessionToken)},
+            data: JSON.stringify(postData),
+            complete: function(res) {
+                let response = JSON.parse(res.responseText);
+                console.log(res.responseText);
+                if(response['status'] == "1") {
+                    location.reload();
+                } else {
+                    alert("There might be some issue saving a news");
+                    
+                    //do something if the session is valid
+                }
+            }
+            });
+        }
+
     })
     
 });
