@@ -26,7 +26,6 @@ $data = json_decode(file_get_contents("php://input"));
 if($data != null) {
     $post->id = $data->id;
     $post->category_id = $data->category_id;
-    $post->category_name = $data->category_name;
     $post->title = $data->title;
     $post->body = $data->body;
     $post->author = $data->author;
@@ -40,7 +39,6 @@ if($data != null) {
         //$updatedOn = date("yyyy-mm-dd HH:mm:ss");
         $post->title = isset($data->title) ? $data->title : $row['title'];
         $post->category_id = isset($data->category_id) ? $data->category_id : $row['category_id'];
-        $post->category_name = isset($data->category_name) ? $data->category_name : $row['category_name'];
         $post->body = isset($data->body) ? $data->body : $row['body'];
         $post->author = isset($data->author) ? $data->author : $row['author'];
         

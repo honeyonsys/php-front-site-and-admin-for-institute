@@ -55,9 +55,6 @@
 $(document).ready(function() {
     
     fetchNewsList();
-    function editNews(newsId) {
-        alert(newsId);
-    }
     
     function fetchNewsList() {
         $.ajax({
@@ -85,7 +82,7 @@ $(document).ready(function() {
 
     $("#createNewsBtn").click(function() {
         $(this).html("Saving post...");
-        $(this).prop("disabled", "disabled");
+        $(this).prop("disabled", false);
         let newsTitle = $("#newsTitle").val();
         let newsContent = $("#newsContent").val();
         postData = {
@@ -112,7 +109,60 @@ $(document).ready(function() {
         });
     });
 
-    
+    $("#updateNewsBtn").click(function() {
+        $(this).html("Saving post...");
+        let newsTitle = $("#newsTitle").val();
+        let newsContent = $("#newsContent").val();
+        let newsId = $("#editPostId").val();
+        postData = {
+            title: newsTitle,
+            body: newsContent,
+            author: 1,
+            category_id: 0,
+            id: newsId
+        };
+        $.ajax({
+        url: apiPostUpdate,
+        method: "PUT",
+        headers: { "token":  localStorage.getItem(sessionToken)},
+        data: JSON.stringify(postData),
+        complete: function(res) {
+            let response = JSON.parse(res.responseText);
+            if(response['status'] == "1") {
+                location.reload();
+            } else {
+                alert("There might be some issue saving a news");
+                location.reload();
+                //do something if the session is valid
+            }
+        }
+        });
+    });
+
+    $("#newsTable").on("click", ".newsEditBtn", function() {
+        let postId = $(this).parents('td').children("input[type=hidden]").val();
+        $.ajax({
+        url: apiPostReadSingle+"?id="+postId,
+        method: "GET",
+        headers: { "token":  localStorage.getItem(sessionToken)},
+        complete: function(res) {
+            let response = JSON.parse(res.responseText);
+            console.log(res.responseText);
+            if(response['status'] == "1") {
+                $("#createNewsBtn").hide();
+                $("#updateNewsBtn").show();
+                $("#newsTitle").val(response['data']['title']);
+                $("#newsContent").val(response['data']['body']);
+                $("#editPostId").val(response['data']['id']);
+            } else {
+                alert("There might be some issue saving a news");
+                
+                //do something if the session is valid
+            }
+        }
+        });
+
+    })
     
 });
 </script>
