@@ -3,7 +3,9 @@
 <title>Event Management</title>
 <link rel="stylesheet" href="assets/css/style.css" />
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="assets/css/jquery.dataTables.min.css" />
 <script src="assets/js/jquery-3.6.4.min.js"></script>
+<script src="assets/js/jquery.dataTables.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
@@ -31,7 +33,8 @@
                 <thead>
                     <tr>
                         <th>Sr.</th>
-                        <th>Event Name</th>
+                        <th>Event Title</th>
+                        <th>Event Description</th>
                         <th>Event Date</th>
                         <th>Actions</th>
                     </tr>
@@ -39,7 +42,8 @@
                 <tfoot>
                     <tr>
                         <th>Sr.</th>
-                        <th>Event Name</th>
+                        <th>Event Title</th>
+                        <th>Event Description</th>
                         <th>Event Date</th>
                         <th>Actions</th>
                         
@@ -56,6 +60,29 @@
 <script>
 $(document).ready(function(){
     $('#eventDate').datepicker();
+    //fetching all the events
+    $.ajax({
+        url: apiEventReadAll,
+        method: "GET",
+        headers: { "token":  localStorage.getItem(sessionToken)},
+        complete: function(res) {
+            let response = JSON.parse(res.responseText);
+            if(response['status'] == "1") {
+                $('#eventTable').dataTable({
+                    data: response['data'],
+                    columns: [
+                        { data: 'sno' },
+                        { data: 'title' },
+                        { data: 'description' },
+                        { data: 'date' },
+                        { data: 'action' }
+                    ]
+                });
+            } else {
+                //do something if the session is valid
+            }
+        }
+    });
 
     $("#createEventBtn").click(function() {
         $(this).html("Saving event...");
