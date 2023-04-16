@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<head>
+<title>Homepage</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+<script src="assets/js/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+<div class="mainCont">
+<header></header>
+<div class="aboutCont">
+    <div class="aboutUsDescription" >
+		<h3>ABOUT US </h3>
+		<p>
+		The Khalsa College for Women envisions a time where empowering women is not just a dream
+		but a way of life. The institution's vision is focused on providing intellectual, financial, emotional,
+		and moral assistance to women in order to ensure their equality and fairness in society.As stated in the 
+		college's slogan, "Sarbat da Bhala," KCW guarantees its stakeholders the chance to progress physically, 
+		mentally, and spiritually in triadic harmony in line with the Khalsa principle of giving oneself over to
+		the community for the good of everyone. This institution, which gives women the chance to thrive and 
+		realise their full potential, welcomes women from all facets of society.<br>At Khalsa College for Women (KCW),
+		the Department of Computer Applications provides a variety of courses, including a 3-year bachelor's degree 
+		and a 2-year master's degree in a related discipline. With a team of faculty members with plenty of expertise,
+		this department has a strong academic history. The department's curriculum offers a solid academic basis with
+		excellent instruction and in-depth practical training. The department offers conferences, workshops, technical seminars,
+		faculty development programmes (FDP), short-term training programmes (STTP), and faculty development programmes in addition
+		to the normal curriculum to expose students to real-world issues that are geared towards meeting societal and industry
+		objectives.
+			  
+		   </p>
+	</div>
+    <div class="aboutImage">
+        <img src="assets/images/aboutus.jpg" />
+    </div>
+	 
+    <!-- <div class="right" style="float: left; margin-top:-520px;">
+	  <img src="assets/images/pic2.jpg" style="width:450px;height: 300px; border-radius: 10px ;margin-left:750px;">
+	  <img src="assets/images/pic3.jpg" style="width:450px;height: 290px;margin-top: -100px; border-radius: 10px ;margin-left:930px;">
+	  <img src="assets/images/shape1.png" style="width:100px;height: 150px; margin-left: 1200px; margin-top: -450px;">
+	  <img src="assets/images/shape2.png" style="margin-left:780px;margin-top:-190px;width: 150px;height: 150px;">
+	</div> -->
+
+</div><!--aboutCont ends-->
+<section>
+    <div class="sectionHeading"><h3>Latest News</h3></div>
+    <div class="homeNewsBoxes">
+        
+    </div>
+</section>
+
+<section>
+    <div class="sectionHeading"><h3>Latest Events</h3></div>
+    <div class="homeEventBoxes">
+        
+    </div>
+</section>
+
+<section>
+	<div class="sectionHeading"><h3>Photos Gallery</h3></div>
+	<div class="homePhotosGallery">
+		<div class="galleryPhoto"><img src="assets/images/pic1.jpg" /></div>
+		<div class="galleryPhoto"><img src="assets/images/pic2.jpg" /></div>
+		<div class="galleryPhoto"><img src="assets/images/pic3.jpg" /></div>
+		<div class="galleryPhoto"><img src="assets/images/pic4.jpg" /></div>
+		<div class="galleryPhoto"><img src="assets/images/pic5.jpg" /></div>
+		<div class="galleryPhoto"><img src="assets/images/pic6.jpg" /></div>
+	</div>
+</section>
+
+<footer></footer>
+</div><!--mainCont ends-->
+<script src="assets/js/common.js"></script>
+<Script>
+    //Contains js only for home page
+    $(document).ready(function(){
+        let newsHTML = "";
+        let eventsHTML = "";
+		for(let i=0;i<=3;i++) {
+            newsHTML += `<figure class="snip1527">
+            <div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample24.jpg" alt="pr-sample24" /></div>
+            <figcaption>
+              <div class="date"><span class="day">17<br>Nov</span></div>
+              <h3>An Abstract Post Heading</h3>
+              <p>
+          
+                Sometimes the surest sign that intelligent life exists elsewhere in the universe is that none of it has tried to contact us.
+              </p>
+            </figcaption>
+            <a href="#"></a>
+        	</figure>`;
+
+			eventsHTML += `
+			<div class="eventCard">
+				<div class="eventCardDate">
+					15 Apl
+				</div>
+				<div class="eventCardText">
+					lorem ipsum is the dummy text for the demostration of the websit
+				</div>
+			</div>
+			`;
+        }
+        $('.homeNewsBoxes').html(newsHTML);
+		$('.homeEventBoxes').html(eventsHTML);
+    });
+</Script>
+</body>
+</html>
