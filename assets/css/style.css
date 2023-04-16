@@ -79,6 +79,25 @@ footer{
   width: 100%;
   height: auto;
 }
+.contactInformationCont {
+  width: 400px;
+  height: auto;
+  float: left;
+  margin-left: 20%;
+  margin-top: 20px;
+  
+}
+.contactInformation {
+  width: 100%;
+  height: 40px;
+  float: left;
+  margin-top: 10px;
+  font-size: 20px;
+}
+.contactInformation i {
+  color: #FF7E84;
+  font-size: 22px;
+}
 .map{
     float: left;
     width:100%;
