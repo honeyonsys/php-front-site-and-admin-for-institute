@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2023 at 06:58 AM
+-- Generation Time: Apr 17, 2023 at 09:09 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -69,6 +69,24 @@ INSERT INTO `events` (`id`, `title`, `description`, `date`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `notice`
+--
+
+CREATE TABLE `notice` (
+  `id` int(255) NOT NULL,
+  `notice` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `notice`
+--
+
+INSERT INTO `notice` (`id`, `notice`) VALUES
+(1, 'Sunil is on leave | Rakshanda mam is on leavedgdfgsd');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `posts`
 --
 
@@ -123,7 +141,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `dob`, `phone`, `address`, `courseId`, `createdOn`, `updatedOn`, `status`, `email`, `password`, `type`, `token`, `tokenExpire`) VALUES
 (1, 'Shahrukh Khan', '02-10-1965', '787866776', 'zuhu, Mumbai', 2, '2323-0303-2828 0606:0303:5656', '2323-0303-2828 0606:0303:5656', 0, 'shahrukhkhan@gmail.com', '546be2d0f627ffda0501df03acf8094f', 0, '', 0),
-(2, 'Harish KUmar', '02-10-1965', '787866776', 'zuhu, Mumbai', 2, '2323-0303-2828 0606:0303:3939', '2323-0303-2828 0606:0303:3939', 0, 'honeyonsys@gmail.com', '251800da8d338eb82819105d5f3c7629', 0, 'aG9uZXlvbnN5c0BnbWFpbC5jb20sMTY4MTcxMDUyMA==', 1681710520),
+(2, 'Harish KUmar', '02-10-1965', '787866776', 'zuhu, Mumbai', 2, '2323-0303-2828 0606:0303:3939', '2323-0303-2828 0606:0303:3939', 0, 'honeyonsys@gmail.com', '251800da8d338eb82819105d5f3c7629', 0, 'aG9uZXlvbnN5c0BnbWFpbC5jb20sMTY4MTcxNzMwNw==', 1681717307),
 (3, 'Salman Khan', '02-10-1965', '787866776', 'zuhu, Mumbai', 2, '2323-0303-2828 1313:0303:1010', '2323-0303-2828 1313:0303:1010', 0, 'salmankhan@gmail.com', '44cd16be6350304f1853d6061acf6ed7', 0, '', 0);
 
 --
@@ -140,6 +158,12 @@ ALTER TABLE `attendance`
 -- Indexes for table `events`
 --
 ALTER TABLE `events`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `notice`
+--
+ALTER TABLE `notice`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -169,6 +193,12 @@ ALTER TABLE `attendance`
 --
 ALTER TABLE `events`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `notice`
+--
+ALTER TABLE `notice`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `posts`
