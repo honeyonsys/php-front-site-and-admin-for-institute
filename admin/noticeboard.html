@@ -9,10 +9,66 @@
 <header></header>
 <div class="mainCont">
     <div class="pageTitle"><h1>Notice Board</h1></div>
-    <div class="pageContent"></div>
+    <div class="pageContent">
+        <div class="createFormCont">
+            <input type="hidden" value="" id="editNoticeId"/>
+            <div class="fullWidthElementCont">
+                <label>Notice Text</label> : <textarea id="noticeContent"></textarea>
+            </div>
+            <div class="fullWidthElementCont">
+                <button id="updateNoticeBtn">Update Notice</button>
+            </div>
+        </div>
+    </div>
 </div>
 <!--constants.js should load before common js-->
 <script src="assets/js/constants.js"></script>
 <script src="assets/js/common.js"></script>
+<script>
+$(document).ready(function() {
+    //fetching notice from api
+    $.ajax({
+        url: apiNoticeReadSingle+"?id=1",
+        method: "GET",
+        complete: function(res) {
+            let response = JSON.parse(res.responseText);
+            if(response['status'] == "1") {
+                $("#editNoticeId").val(response['data']['id']);
+                $("#noticeContent").html(response['data']['notice']);
+                
+            } else {
+                //do something if the session is valid
+            }
+        }
+    });
+
+
+    $("#updateNoticeBtn").click(function() {
+        $(this).html("Saving...");
+        let noticeText = $("#noticeContent").val();
+        let noticeId = $("#editNoticeId").val();
+        postData = {
+            notice: noticeText,
+            id: noticeId
+        };
+        $.ajax({
+        url: apiNoticeUpdate,
+        method: "PUT",
+        headers: { "token":  localStorage.getItem(sessionToken)},
+        data: JSON.stringify(postData),
+        complete: function(res) {
+            let response = JSON.parse(res.responseText);
+            if(response['status'] == "1") {
+                location.reload();
+            } else {
+                alert("There might be some issue saving a news");
+                location.reload();
+                //do something if the session is valid
+            }
+        }
+        });
+    });
+});
+</script>
 </body>
 </html>

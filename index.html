@@ -8,6 +8,12 @@
 <body>
 <div class="mainCont">
 <header></header>
+<div class="logoDiv">
+	<div class="logo"><img src="assets/images/logo.png" /></div>
+	<div class="topMarquee">
+		
+	</div>
+</div>
 <div class="aboutCont">
     <div class="aboutUsDescription" >
 		<h3>ABOUT US </h3>
@@ -76,10 +82,27 @@
         let newsHTML = "";
         let eventsHTML = "";
 		
+		
+		//fetching notice from api
+		$.ajax({
+            url: "admin/"+apiNoticeReadSingle+"?id=1",
+            method: "GET",
+            complete: function(res) {
+                let response = JSON.parse(res.responseText);
+                if(response['status'] == "1") {
+					console.log(response['data']['notice']);
+					$(".topMarquee").html('<marquee>'+response['data']['notice']+'</marquee>');
+					
+                } else {
+                    //do something if the session is valid
+                }
+            }
+        });
+
+		//fetching news from api
 		$.ajax({
             url: "admin/"+apiPostReadAll,
             method: "GET",
-            headers: { "token":  localStorage.getItem(sessionToken)},
             complete: function(res) {
                 let response = JSON.parse(res.responseText);
                 if(response['status'] == "1") {
@@ -102,10 +125,10 @@
             }
         });
 
+		//fetching events from api
 		$.ajax({
             url: "admin/"+apiEventReadAll,
             method: "GET",
-            headers: { "token":  localStorage.getItem(sessionToken)},
             complete: function(res) {
                 let response = JSON.parse(res.responseText);
                 if(response['status'] == "1") {
@@ -129,6 +152,7 @@
             }
         });
 		
+
     });
 </Script>
 </body>

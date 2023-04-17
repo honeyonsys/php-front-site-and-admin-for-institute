@@ -157,8 +157,27 @@ footer{
   line-height: 40px;
   font-size: 25px;
 }
-
-
+.logoDiv {
+  width:calc(100% - 20px);
+  
+  height: auto;
+  float: left;
+  margin-top:10px;
+  margin-bottom:10px;
+  margin-left: 10px;
+}
+.logo{
+  width: 100px;
+  height:100px;
+  float: left;
+}
+.topMarquee{
+  width: 80%;
+  height: 30px;
+  float: right;
+  margin-top: 20px;
+  color: red;
+}
 /*ABOUT US*/
 .aboutCont{
     width:100%;
