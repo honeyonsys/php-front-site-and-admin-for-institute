@@ -69,6 +69,22 @@ class Users
         return $stmt;
     }
 
+    public function getUserTypeByEmail($email){
+        $selectQry = 'SELECT type FROM ' . $this->table . ' WHERE `email`=?';
+        $stmt = $this->conn->prepare($selectQry);
+        $stmt->bindParam(1, $email);
+        $stmt->execute();
+        $type = "";
+        if($stmt->rowCount() > 0) {
+            $rowData = $stmt->fetch();
+            $type = $rowData['type'];
+            
+            
+            
+        }
+        return $type;
+    }
+
     public function createUser()
     {
         $insertQry = 'INSERT INTO ' . $this->table . '(email, password, name, dob, phone, address, courseId, createdOn, updatedOn, type) VALUES(:email, :password, :name, :dob, :phone, :address, :courseId, :createdOn, :updatedOn, :type)';
@@ -170,6 +186,7 @@ class Users
         $stmt->bindParam(2, $encryptPassword);
         //execute query
         $stmt->execute();
+        return $stmt;
         if ($stmt->rowCount() > 0) {
             return true;
         } else {

@@ -24,9 +24,10 @@ if (!filter_var($user->email, FILTER_VALIDATE_EMAIL)) {
     echo json_encode(array('status'=> 0, 'message' => 'Not a valid email!'));
 } else {
     if ($user->loginUser()) {
+        $userType = $user->getUserTypeByEmail($user->email);
         $tokenRes = $user->generateTokenForEmail($user->email);
         $decodeRes = json_decode($tokenRes);
-        echo json_encode(array('status'=> 1, 'message' => 'user login successfully!', 'token'=>$decodeRes->token, 'tokenExpire'=>$decodeRes->tokenExpire));
+        echo json_encode(array('status'=> 1, 'message' => 'user login successfully!','userType'=>$userType, 'token'=>$decodeRes->token, 'tokenExpire'=>$decodeRes->tokenExpire));
         
     } else {
         echo json_encode(array('status'=> 0, 'message' => 'user login failed!'));

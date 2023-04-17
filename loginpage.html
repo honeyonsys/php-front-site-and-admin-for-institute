@@ -6,40 +6,90 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bona+Nova&display=swap" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  
   <!--ICONS-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
 integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
 crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <script src="assets/js/jquery-3.6.4.min.js"></script>
-
+<script src="admin/assets/js/constants.js"></script>
 </head>
 <body>
 <div class="mainCont">
 <header></header>
-
-            <div class="mainlogin">
-                <div class="loginheading">
-                    <p>LOG IN</p>    
-                    </div>
-                    <div class="uname">
-                    <input type="text" placeholder="Enter User Name"><i class="fa-solid fa-user"></i>
-                    </div>
-                    <div class="pass">
-                        <input type="password" placeholder="Enter Your Password"><i class="fa-solid fa-lock"></i>
-                        </div>
-                        <div class="btn">
-                           <button>SIGN IN</button>
-                            </div>
-                           
-        
-                    </div>
-                   
-         
-        
-         
+<div class="pageContent">
+  <div class="simple-login-container">
+    <h2>Login </h2>
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <input type="text" class="form-control" placeholder="Username" id="username">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <input type="password" placeholder="Enter your Password" class="form-control" id="userPassword">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <input type="button" value="Login" id="loginBtn" class="btn btn-block btn-login" placeholder="Enter your Password" >
+        </div>
+    </div>
+    
+</div>
 </div>
 <footer></footer>
+</div>
 <script src="assets/js/common.js"></script>
+<script>
+$(document).ready(function(){
+    var loginParam = new URLSearchParams(window.location.search).get("login");
+
+    // Check if the login parameter exists and is not empty
+    if (loginParam && loginParam !== "") {
+      // Set the text of the h1 tag to the login parameter value
+      $("h2").text("Login for "+ loginParam);
+    } else {
+      $("h2").text("Login");
+    }
+
+    $("#loginBtn").click(function() {
+        let btn = $(this);
+        btn.html('<img src="admin/assets/images/Rolling-1s-200px.gif" width="30" height="30" />' );
+        btn.attr("disabled", "disabled");
+        $.ajax({
+            url: "admin/"+ apiLoginUser,
+            method: "post",
+            data: JSON.stringify({"email": $("#username").val(), "password": $("#userPassword").val()}),
+            complete: function(res) {
+                btn.attr("disabled", false);
+                btn.html("LOGIN");
+                let response = JSON.parse(res.responseText);
+                if(response['status'] == "1") {
+                    localStorage.setItem(frontSessionEmail, $("#username").val());
+                    localStorage.setItem(frontSessionToken, response['token']);
+                    localStorage.setItem(frontSessionUserType, response['userType']);
+                    
+                    console.log(res);
+                    //userType 0 = student
+                    //userType 1 = admin
+                    //userType 2 = teacher
+                    if(response['userType'] == "0") {
+                      window.location.href = "dashboardstudent.html";
+                    } else if (response['userType'] == "2") {
+                      window.location.href = "dashboardteacher.html";
+                    }
+                } else {
+                    alert(response['message']);
+                }
+            }
+        })
+    })
+
+});
+</script>
 </body>
 </html>

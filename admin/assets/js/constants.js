@@ -18,3 +18,6 @@ const apiNoticeReadSingle = apiHost + '/notice_readsingle.php';
 const apiNoticeUpdate = apiHost + '/notice_update.php';
 const sessionEmail = "ims-session-email";
 const sessionToken = "ims-session-token";
+const frontSessionEmail = "ims-front-site-email";
+const frontSessionToken = "ims-front-site-token";
+const frontSessionUserType = "ims-front-site-user-type";
