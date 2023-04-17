@@ -3,6 +3,7 @@
 <title>Homepage</title>
 <link rel="stylesheet" href="assets/css/style.css" />
 <script src="assets/js/jquery-3.6.4.min.js"></script>
+<script src="admin/assets/js/constants.js"></script>
 </head>
 <body>
 <div class="mainCont">
@@ -74,33 +75,61 @@
     $(document).ready(function(){
         let newsHTML = "";
         let eventsHTML = "";
-		for(let i=0;i<=3;i++) {
-            newsHTML += `<figure class="snip1527">
-            <div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample24.jpg" alt="pr-sample24" /></div>
-            <figcaption>
-              <div class="date"><span class="day">17<br>Nov</span></div>
-              <h3>An Abstract Post Heading</h3>
-              <p>
-          
-                Sometimes the surest sign that intelligent life exists elsewhere in the universe is that none of it has tried to contact us.
-              </p>
-            </figcaption>
-            <a href="#"></a>
-        	</figure>`;
+		
+		$.ajax({
+            url: "admin/"+apiPostReadAll,
+            method: "GET",
+            headers: { "token":  localStorage.getItem(sessionToken)},
+            complete: function(res) {
+                let response = JSON.parse(res.responseText);
+                if(response['status'] == "1") {
+					let news = JSON.parse(res.responseText);
+                    console.log(news['data'][0]['title']);
+					for(let i = 0; i < 4; i++) {
+						$('.homeNewsBoxes').append(`<figure class="snip1527">
+						<div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample24.jpg" alt="pr-sample24" /></div>
+						<figcaption>
+						<div class="date"><span class="day">17<br>Nov</span></div>
+						<h3>${news['data'][i]['title']}</h3>
+						<p>${news['data'][i]['body']}</p>
+						</figcaption>
+						<a href="#"></a>
+						</figure>`);			
+					}
+					
+                } else {
+                    //do something if the session is valid
+                }
+            }
+        });
 
-			eventsHTML += `
-			<div class="eventCard">
-				<div class="eventCardDate">
-					15 Apl
-				</div>
-				<div class="eventCardText">
-					lorem ipsum is the dummy text for the demostration of the websit
-				</div>
-			</div>
-			`;
-        }
-        $('.homeNewsBoxes').html(newsHTML);
-		$('.homeEventBoxes').html(eventsHTML);
+		$.ajax({
+            url: "admin/"+apiEventReadAll,
+            method: "GET",
+            headers: { "token":  localStorage.getItem(sessionToken)},
+            complete: function(res) {
+                let response = JSON.parse(res.responseText);
+                if(response['status'] == "1") {
+					let event = JSON.parse(res.responseText);
+                    console.log(res.responseText);
+					for(let i = 0; i < 4; i++) {
+						$('.homeEventBoxes').append(`<div class="eventCard">
+							<div class="eventCardDate">
+								${event['data'][0]['date']}
+							</div>
+							<div class="eventCardText">
+								${event['data'][0]['description']}
+							</div>
+						</div>`);				
+									
+					}
+					
+                } else {
+                    //do something if the session is valid
+                }
+            }
+        });
+		
     });
 </Script>
 </body>

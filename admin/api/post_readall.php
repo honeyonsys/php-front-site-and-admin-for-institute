@@ -15,7 +15,7 @@ $post = new Post($db);
 $user = new Users($db);
 
 //it will check the sent token in header is valid or not
-include_once('checkTokenValidity.php');
+// include_once('checkTokenValidity.php');
 
 //blog post query
 $result = $post->read();
