@@ -33,7 +33,7 @@ header{
     background-color: #FF7E84;
 }
 .menuLinks{
-    width:60%; 
+    width:70%; 
     height:40px;
     float: left;
 }
@@ -530,4 +530,374 @@ section .section-title {
   color: #007b5e !important;
 }
 
-.
+
+/* timetable for students and teachers */
+     
+.course-img>img{
+  margin-left: -3px;
+}
+.timetable-box:hover{
+box-shadow: 0 0 25px grey;
+transition: all .2s ease-in-out; 
+transform: scale(1.1); 
+transform: skew(10deg);
+}
+
+
+.timetable-box {
+width: 365px;
+height: 300px;
+float: left;
+background-color: #FFECE8;
+margin-left: 80px;
+margin-top: 50px;
+}
+
+
+
+.course_heading>h1{
+font-family: 'Bona Nova', serif; 
+font-size: 50px;
+font-weight: 900;
+text-align: center;
+margin-top: 25px;
+color: #ff7e84;
+}
+.box1>p{
+text-align: center;
+margin-top: 80px;
+
+}
+
+.timetable-popup_box .timetable-popup_content {
+max-height: 80%;
+max-width: 50%;
+/* margin-left: 300px; */
+}
+.timetable-sem-popup_box .timetable-sem-popup_content{
+margin-left: 150px;
+}
+.timetable-popup_box>h2{
+color:#ff7e84;
+font-family: 'Bona Nova', serif; 
+font-size: 50px;
+font-weight: 900;
+text-align: center;
+}
+
+.timetable-overlay_popup {
+position: fixed;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+background: rgba(0, 0, 0, 0.7);
+transition: opacity 500ms;
+visibility: hidden;
+opacity: 0;
+}
+.timetable-overlay_popup:target {
+visibility: visible;
+opacity: 1;
+}
+.timetable-popup_box {
+margin: 70px auto;
+padding: 20px;
+background: #fff;
+border-radius: 5px;
+background-color: #FFECE8;
+width: 70%;
+height: auto;
+position: relative;
+transition: all 2s ease-in-out;
+}
+.timetable-popup_box .timetable-popup_close {
+position: absolute;
+top: 20px;
+right: 30px;
+transition: all 200ms;
+font-size: 30px;
+font-weight: bold;
+text-decoration: none;
+color: #333;
+}
+.timetable-popup_box .timetable-popup_content {
+max-height: 80%;
+max-width: 100%;
+
+}
+.timetable-popup_content>h2{
+font-size: 30px;
+font-weight: 700;
+font-family: 'Bona Nova', serif; 
+color:#ff7e84;    
+}
+.timetable-sem-popup_box {
+margin: 70px auto;
+padding: 20px;
+background: #fff;
+border-radius: 5px;
+background-color: #FFECE8;
+width: 30%;
+height: auto;
+position: relative;
+transition: all 2s ease-in-out;
+}
+.timetable-sem-popup_box .timetable-popup_close {
+position: absolute;
+top: 20px;
+right: 30px;
+transition: all 200ms;
+font-size: 30px;
+font-weight: bold;
+text-decoration: none;
+color: #333;
+}
+.timetable-sem-popup_box .timetable-popup_content {
+max-height: 80%;
+max-width: 100%;
+
+}
+.timetable-sem-popup_box>h2{
+color:#ff7e84;
+font-family: 'Bona Nova', serif; 
+font-size: 50px;
+font-weight: 900;
+text-align: center;
+}
+
+
+
+/* loginpage */
+.loginheading>p{
+   
+  float: left;
+  font-size:30px ;
+  margin-top: 120px;
+  margin-left:45%;
+  color: #ff7e84;
+
+}
+ .uname input{
+  border: 2px solid white;
+  float: left;
+  border-radius: 15px;
+  margin-top: 210px;
+  height: 35px;
+  width: 220px;
+  margin-left: -150px;
+  opacity: 0.5;
+  background-color: black;
+  
+
+ }
+
+ .pass input{
+  border: 2px solid white;
+  float: left;
+  border-radius: 15px;
+  margin-top: 270px;
+  height: 35px;
+  width: 220px;
+  margin-left: -228px;
+  opacity: 0.5;
+  background-color: black;
+  
+
+ }
+
+ button{
+  background-color: #ed0f38;
+  border: 2px solid #ed0f38;
+  border-radius: 25px;
+  color: white;
+  font-size: 15px;
+  float: left;
+  margin-top: 380px;
+  margin-left: -190px;
+  width: 150px;
+  height: 40px;
+ }
+
+
+
+::placeholder{
+  color: white;
+  font-size: 15px;
+}
+
+.uname i{
+color: #f2f2f2;
+margin-top: 338px;
+margin-left: -20px;
+float: left;
+opacity: 0.5;
+}
+
+.pass i{
+color: #f2f2f2;
+margin-top: 390px;
+margin-left: -20px;
+float: left;
+opacity: 0.5;
+}
+
+.container{
+  float: left;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+}
+.mainlogin{
+  float: left;
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  
+  margin-left: auto;
+  margin-right: auto;
+ 
+}
+
+/* timetable for students and teachers */
+     
+.course-img>img{
+  margin-left: -3px;
+}
+.timetable-box:hover{
+box-shadow: 0 0 25px grey;
+transition: all .2s ease-in-out; 
+transform: scale(1.1); 
+transform: skew(10deg);
+}
+
+
+.timetable-box {
+width: 365px;
+height: 300px;
+float: left;
+background-color: #FFECE8;
+margin-left: 80px;
+margin-top: 50px;
+}
+
+
+.timetable-box a{
+text-decoration: none;
+color:#ff7e84 ;
+font-size: 35px;
+font-weight: 700;
+}
+
+
+.course_heading>h1{
+font-family: 'Bona Nova', serif; 
+font-size: 50px;
+font-weight: 900;
+text-align: center;
+margin-top: 25px;
+color: #ff7e84;
+}
+.box1>p{
+text-align: center;
+margin-top: 80px;
+
+}
+
+.timetable-popup_box .timetable-popup_content {
+max-height: 80%;
+max-width: 50%;
+/* margin-left: 300px; */
+}
+.timetable-sem-popup_box .timetable-sem-popup_content{
+margin-left: 150px;
+}
+.timetable-popup_box>h2{
+color:#ff7e84;
+font-family: 'Bona Nova', serif; 
+font-size: 50px;
+font-weight: 900;
+text-align: center;
+}
+
+.timetable-overlay_popup {
+position: fixed;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+background: rgba(0, 0, 0, 0.7);
+transition: opacity 500ms;
+visibility: hidden;
+opacity: 0;
+}
+.timetable-overlay_popup:target {
+visibility: visible;
+opacity: 1;
+}
+.timetable-popup_box {
+margin: 70px auto;
+padding: 20px;
+background: #fff;
+border-radius: 5px;
+background-color: #FFECE8;
+width: 70%;
+height: auto;
+position: relative;
+transition: all 2s ease-in-out;
+}
+.timetable-popup_box .timetable-popup_close {
+position: absolute;
+top: 20px;
+right: 30px;
+transition: all 200ms;
+font-size: 30px;
+font-weight: bold;
+text-decoration: none;
+color: #333;
+}
+.timetable-popup_box .timetable-popup_content {
+max-height: 80%;
+max-width: 100%;
+
+}
+.timetable-popup_content>h2{
+font-size: 30px;
+font-weight: 700;
+font-family: 'Bona Nova', serif; 
+color:#ff7e84;    
+}
+.timetable-sem-popup_box {
+margin: 70px auto;
+padding: 20px;
+background: #fff;
+border-radius: 5px;
+background-color: #FFECE8;
+width: 30%;
+height: auto;
+position: relative;
+transition: all 2s ease-in-out;
+}
+.timetable-sem-popup_box .timetable-popup_close {
+position: absolute;
+top: 20px;
+right: 30px;
+transition: all 200ms;
+font-size: 30px;
+font-weight: bold;
+text-decoration: none;
+color: #333;
+}
+.timetable-sem-popup_box .timetable-popup_content {
+max-height: 80%;
+max-width: 100%;
+
+}
+.timetable-sem-popup_box>h2{
+color:#ff7e84;
+font-family: 'Bona Nova', serif; 
+font-size: 50px;
+font-weight: 900;
+text-align: center;
+}
