@@ -84,8 +84,7 @@
                 let response = JSON.parse(res.responseText);
                 if(response['status'] == "1") {
 					let news = JSON.parse(res.responseText);
-                    console.log(news['data'][0]['title']);
-					for(let i = 0; i < 4; i++) {
+                    for(let i = 0; i < 4; i++) {
 						$('.homeNewsBoxes').append(`<figure class="snip1527">
 						<div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample24.jpg" alt="pr-sample24" /></div>
 						<figcaption>
@@ -115,10 +114,10 @@
 					for(let i = 0; i < 4; i++) {
 						$('.homeEventBoxes').append(`<div class="eventCard">
 							<div class="eventCardDate">
-								${event['data'][0]['date']}
+								${event['data'][i]['date']}
 							</div>
 							<div class="eventCardText">
-								${event['data'][0]['description']}
+								${event['data'][i]['description']}
 							</div>
 						</div>`);				
 									

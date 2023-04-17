@@ -60,7 +60,11 @@
 <script src="assets/js/common.js"></script>
 <script>
 $(document).ready(function(){
-    $('#eventDate').datepicker();
+    $('#eventDate').datepicker({
+        dateFormat: 'dd-M-yy',
+    monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    });
     //fetching all the events
     $.ajax({
         url: apiEventReadAll,
