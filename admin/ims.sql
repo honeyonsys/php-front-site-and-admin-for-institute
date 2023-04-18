@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2023 at 09:09 AM
+-- Generation Time: Apr 18, 2023 at 08:29 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -140,9 +140,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `dob`, `phone`, `address`, `courseId`, `createdOn`, `updatedOn`, `status`, `email`, `password`, `type`, `token`, `tokenExpire`) VALUES
-(1, 'Shahrukh Khan', '02-10-1965', '787866776', 'zuhu, Mumbai', 2, '2323-0303-2828 0606:0303:5656', '2323-0303-2828 0606:0303:5656', 0, 'shahrukhkhan@gmail.com', '546be2d0f627ffda0501df03acf8094f', 0, '', 0),
-(2, 'Harish KUmar', '02-10-1965', '787866776', 'zuhu, Mumbai', 2, '2323-0303-2828 0606:0303:3939', '2323-0303-2828 0606:0303:3939', 0, 'honeyonsys@gmail.com', '251800da8d338eb82819105d5f3c7629', 0, 'aG9uZXlvbnN5c0BnbWFpbC5jb20sMTY4MTcxNzMwNw==', 1681717307),
-(3, 'Salman Khan', '02-10-1965', '787866776', 'zuhu, Mumbai', 2, '2323-0303-2828 1313:0303:1010', '2323-0303-2828 1313:0303:1010', 0, 'salmankhan@gmail.com', '44cd16be6350304f1853d6061acf6ed7', 0, '', 0);
+(1, 'Admin', '02-10-1965', '787866776', 'zuhu, Mumbai', 2, '10-04-2023 24:00:00', '10-04-2023 24:00:00', 1, 'admin@abc.com', '251800da8d338eb82819105d5f3c7629', 1, '', 0),
+(2, 'student', '02-10-1965', '787866776', 'zuhu, Mumbai', 2, '12-04-2023 23:00:00', '12-04-2023 23:00:00', 1, 'student@abc.com', '251800da8d338eb82819105d5f3c7629', 0, 'c3R1ZGVudEBhYmMuY29tLDE2ODE4MDIzMDI=', 1681802302),
+(3, 'teacher', '02-10-1965', '787866776', 'zuhu, Mumbai', 2, '12-04-2023 23:00:00', '12-04-2023 23:00:00', 1, 'teacher@abc.com', '251800da8d338eb82819105d5f3c7629', 2, '', 0);
 
 --
 -- Indexes for dumped tables
