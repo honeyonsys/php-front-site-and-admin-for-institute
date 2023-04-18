@@ -43,7 +43,7 @@ header{
 }
 .menuLinks ul li{
     float: left;
-    margin-left:20px;
+    margin-left:15px;
     line-height: 40px;
     
 }
@@ -54,7 +54,7 @@ header{
     text-decoration: none;;
 }
 .topIconsRight{
-    width:25%;
+    width:auto;
     height: 40px;
     float: right;
 

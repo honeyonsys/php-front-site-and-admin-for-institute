@@ -5,13 +5,18 @@ $(document).ready(function(){
    setTimeout(function() {
       let sessionEmailName = localStorage.getItem(frontSessionEmail);
       let sessionTokenName = localStorage.getItem(frontSessionToken);
+      let sessionUserType = localStorage.getItem(frontSessionUserType);
       // if(sessionEmailName == null && sessionTokenName == null) {
       //    window.location.href="loginpage.html";
       // }
       if(sessionEmailName == null && sessionTokenName == null) {
          $(".topIconsRight").html('<a href="loginpage.html?login=student"><div class="topBtn">Login Student</div></a>    <a href="loginpage.html?login=teacher"><div class="topBtn">Login Teacher</div></a>');    
       } else {
-            $(".topIconsRight").html('<a href="#" id="frontLogoutBtn"><div class="topBtn">Logout</div></a>');
+            let dashlink = "dashboardstudent.html";
+            if(sessionUserType == 2) {
+               dashlink = "dashboardteacher.html";
+            }
+            $(".topIconsRight").html('<a href="'+dashlink+'"><div class="topBtn">Dashboard: '+sessionEmailName+'</div></a> <a href="#" id="frontLogoutBtn"><div class="topBtn">Logout</div></a>');
       }
    }, 3000);
 
